@@ -6,17 +6,21 @@
 function linkedListGenerator() {
   let head = null;
   let tail = null;
+
   function getHead() {
     return head;
   }
+
   function getTail() {
     return tail;
   }
+
   function add(value) {
     let newNode = {
       value: value,
       next: null
     }
+
     if (head === null && tail === null) {
       head = newNode;
       tail = newNode;
@@ -29,6 +33,7 @@ function linkedListGenerator() {
 
   function get(num) {
     let node = head;
+
     for (let i = 0; i < num; i++) {
       if (node.next === null) {
         return false;
@@ -41,6 +46,7 @@ function linkedListGenerator() {
   function remove(num) {
     let pNode = get(num - 1);
     let nNode = get(num + 1);
+
     if (nNode === false) {
       pNode.next = null;
       tail = pNode;
@@ -55,12 +61,14 @@ function linkedListGenerator() {
       pNode.next = nNode;
     }
   }
+
   function insert(value, num) {
     let newNode = {
       value: value,
       next: null
     }
     let pNode = get(num - 1);
+
     if (num === 0) {
       newNode.next = head;
       head = newNode;
@@ -71,6 +79,7 @@ function linkedListGenerator() {
       pNode.next = newNode;
     }
   }
+
   return {
     getHead, getTail, add, remove, get, insert
   };
